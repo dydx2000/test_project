@@ -1,0 +1,116 @@
+$cyan-light: #5cdbd3;
+$blue-light: #69c0ff;
+$yellow-light: #fffb8f;
+
+
+@mixin navFrame {
+  width: 100%;
+  max-width: 90rem;
+}
+
+@mixin background {
+  background: linear-gradient(to right bottom,$cyan-light,$blue-light);
+}
+
+@mixin fontStyle {
+  color: white;
+  text-shadow: 1px 1px 1px ,rgba($color: #000000, $alpha: 0.2)
+  
+}
+
+@mixin iconFilter {
+  filter: drop-shadow(0px 0px 5px black) invert(1);
+
+}
+
+html {
+  @include background;
+
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 24px;
+}
+
+
+
+header {
+  @include navFrame;
+  ul {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    justify-content: space-evenly;
+    a {
+      @include fontStyle;
+    }
+    
+  }
+}
+
+footer {
+  @include navFrame;
+  ul {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    @include iconFilter;
+  }
+}
+
+main {
+  @include navFrame;
+  .card {
+    @include fontStyle;
+    // @include iconFilter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: calc(2rem + 4%) calc(2rem + 6%);
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+    .left {
+      max-width: 45rem;
+    }
+
+    hr {
+      width:  10%;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 200;
+    }
+
+    .span {
+      text-align: center;
+      border-radius: 5rem;
+      background-color: rgba(255,255,255,0.1);
+      padding:1rem 3rem;
+      cursor: pointer;
+
+      transtion :200ms;
+
+      &:active {
+        background-color: red;
+      }
+    }
+
+
+
+    .social a {
+      @include fontStyle;
+    }
+
+    .right {
+    }
+  }
+}
